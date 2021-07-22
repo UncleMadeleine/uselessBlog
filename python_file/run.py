@@ -8,7 +8,7 @@ with open('../commit.log', 'r') as f:
 	wcr = f.readlines()
 
 for i in wcr:
-	str+=i+'\n'
+	str+=i
 f.close()
 data = {
 	"ToUserUid":int(wqy[1]),
