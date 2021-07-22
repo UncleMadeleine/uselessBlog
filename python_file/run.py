@@ -4,7 +4,7 @@ import sys
 # import getpot
 wqy = sys.argv
 str=""
-with open('commit.log', 'r') as f:
+with open('../commit.log', 'r') as f:
 	wcr = f.readlines()
 
 for i in wcr:
