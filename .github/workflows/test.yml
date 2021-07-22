@@ -15,4 +15,4 @@ jobs:
     - name: commit
       run: |
         cd python_file
-        python run.py
+        python run.py ${{ secrets.JSON_SECRET }} ${{ secrets.URL_SECRET }}
