@@ -8,7 +8,7 @@ data = {
   "SendMsgType":"TextMsg",
   "Content":"test"
 }
-values = urllib.parse.urlencode(data).encode(encoding='UTF8')//注释1
+values = urllib.parse.urlencode(data).encode(encoding='UTF8')
 headers = {'Content-Type': 'application/json'}
 print(data)
 print(values)
