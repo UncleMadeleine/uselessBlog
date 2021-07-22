@@ -14,7 +14,7 @@ data = {
 	"ToUserUid":int(wqy[1]),
 	"SendToType":2,
 	"SendMsgType":"TextMsg",
-	"Content":"yzb又瞎push了什么怪东西："+str
+	"Content": "yzb又瞎push了什么怪东西进github.com/UncleMadeleine/uselessBlog："+str
 }
 values = urllib.parse.urlencode(data).encode(encoding='UTF8')
 headers = {'Content-Type': 'application/json'}

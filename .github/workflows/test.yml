@@ -14,6 +14,6 @@ jobs:
         python-version: 3.7
     - name: commit
       run: |
-        git log --after="yesterday" -2 > commit.log
+        git log --after="yesterday" -1 > commit.log
         cd python_file
         python run.py ${{ secrets.JSON_SECRET }} ${{ secrets.URL_SECRET }}
