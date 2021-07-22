@@ -3,10 +3,10 @@ import json
 
 
 data = {
-  "ToUserUid":393826682,
-  "SendToType":1,
+  "ToUserUid":776223056,
+  "SendToType":2,
   "SendMsgType":"TextMsg",
-  "Content":"test"
+  "Content":"yzb又瞎push了什么怪东西"
 }
 values = urllib.parse.urlencode(data).encode(encoding='UTF8')
 headers = {'Content-Type': 'application/json'}
