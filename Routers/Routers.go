@@ -1,8 +1,9 @@
 package Routers
 
 import (
+	"uselessBlog/Controllers/HomeControoler"
+
 	"github.com/gin-gonic/gin"
-	"uselessBlog/Controller/HomeControoler"
 )
 
 func Init(router *gin.Engine) {
@@ -15,7 +16,7 @@ func Init(router *gin.Engine) {
 
 	{
 		home.GET("/", HomeControoler.Index)
-                home.GET("/hi",HomeControoler.Hi)
+		home.GET("/hi", HomeControoler.Hi)
 	}
 
 	router.Run(":8888") // 监听并在 127.0.0.1:8888 上启动服务

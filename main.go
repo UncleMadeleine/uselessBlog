@@ -12,15 +12,14 @@
 package main
 
 import (
+	"uselessBlog/Routers"
+	"uselessBlog/Service/DbService"
+
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
 	router := gin.Default()
-	router.GET("/", func(c *gin.Context) {
-		c.JSON(200, gin.H {
-			"Name": "Hello world !",
-		})
-	})
-	router.Run(": 8888")
+	DbService.ConnectDb()
+	Routers.Init(router)
 }
