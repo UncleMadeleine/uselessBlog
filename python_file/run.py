@@ -8,9 +8,9 @@ with open('../commit.log', 'r') as f:
 	wcr = f.readlines()
 flag=1
 for i in wcr:
-    if flag:
-    	continue
-	if len(i) <3:
+	if flag:
+		continue
+	if len(i) < 3:
 		continue
 	if i[0:6] == "Author":
 		ljw = i.split("<")
