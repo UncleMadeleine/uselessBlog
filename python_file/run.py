@@ -16,7 +16,7 @@ for i in wcr:
     		continue
 	if len(i.strip()) < 3:
 		continue
-	str+=i.strip()
+	str+=i.strip()+"\n"
 f.close()
 data = {
 	"ToUserUid":int(wqy[1]),
