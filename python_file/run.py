@@ -6,9 +6,17 @@ wqy = sys.argv
 str=""
 with open('../commit.log', 'r') as f:
 	wcr = f.readlines()
-
+flag=1
 for i in wcr:
-	str+=i
+    if flag:
+    	continue
+	if len(i) <3:
+		continue
+	if i[0:6] == "Author":
+		ljw = i.split("<")
+		i = ljw[0]
+		flag=0
+	str+=i.strip()
 f.close()
 data = {
 	"ToUserUid":int(wqy[1]),
