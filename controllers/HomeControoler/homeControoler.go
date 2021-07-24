@@ -1,12 +1,24 @@
-package HomeControoler
+package HomeControler
 
-import "github.com/gin-gonic/gin"
+import (
+	"uselessBlog/Model/ViewModel/ApiState"
+
+	"github.com/gin-gonic/gin"
+)
 
 func Index(c *gin.Context) {
-	c.JSON(200,"hello world")
+	ApiState.ResponseSuccess(c, "hello world")
 }
 
 func Hi(c *gin.Context) {
-	c.JSON(200,"hi")
-}
 
+	// 获取参数name
+	name := c.Query("name")
+
+	// 参数name为空响应参数错误提示
+	if name == "" {
+		ApiState.ArgErrApiResult(c, "name")
+		return
+	}
+	ApiState.ResponseSuccess(c, "Hi")
+}
