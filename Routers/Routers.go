@@ -1,7 +1,7 @@
 package Routers
 
 import (
-	"uselessBlog/Controllers/HomeControoler"
+	"uselessBlog/Controolers/HomeControoler"
 	"uselessBlog/Service/ConfigService"
 
 	"github.com/gin-gonic/gin"

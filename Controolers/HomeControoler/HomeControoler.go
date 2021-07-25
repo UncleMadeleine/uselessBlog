@@ -1,4 +1,4 @@
-package HomeControler
+package HomeControoler
 
 import (
 	"uselessBlog/Model/ViewModel/ApiState"
