@@ -1,10 +1,10 @@
 package Routers
 
 import (
-	"uselessBlog/Controoler/HomeControoler"
-	"uselessBlog/Controoler/LoginControoler"
-	"uselessBlog/Controoler/RegisterControoler"
-	"uselessBlog/Controoler/UserControoler"
+	"uselessBlog/Controolers/HomeControoler"
+	"uselessBlog/Controolers/LoginControoler"
+	"uselessBlog/Controolers/RegisterControoler"
+	"uselessBlog/Controolers/UserControoler"
 	"uselessBlog/Service/ConfigService"
 
 	"github.com/gin-gonic/gin"
