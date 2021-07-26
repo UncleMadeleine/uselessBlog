@@ -5,6 +5,14 @@ import (
 	"uselessBlog/Service/DbService"
 )
 
+func GetUserInfo(loginName string, password string) Entity.UserEntity {
+	var (
+		user Entity.UserEntity
+	)
+	DbService.Db.Where(&Entity.UserEntity{LoginName: loginName, Password: password}).First(&user)
+	return user
+}
+
 func ByLoginNameGetUser(loginName string) Entity.UserEntity {
 	var (
 		user Entity.UserEntity
