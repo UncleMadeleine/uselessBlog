@@ -5,8 +5,10 @@ import (
 	"uselessBlog/entity/userentity"
 	"uselessBlog/service/configservice"
 
-	"gorm.io/driver/mysql"
-	"gorm.io/gorm"
+	_ "github.com/jinzhu/gorm/dialects/mysql"
+
+	// "gorm.io/driver/mysql"
+	"github.com/jinzhu/gorm"
 )
 
 var Db *gorm.DB
@@ -19,7 +21,7 @@ func ConnectDb() {
 	connectStr := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8&parseTime=True&loc=Local", dbConfig.USER,
 		dbConfig.PASSWORD,
 		dbConfig.HOST, dbConfig.NAME)
-	Db, err = gorm.Open(mysql.Open(connectStr), &gorm.Config{})
+	Db, err = gorm.Open("mysql", connectStr)
 	if err != nil {
 		panic(err)
 	}

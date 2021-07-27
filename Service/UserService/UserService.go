@@ -14,9 +14,9 @@ func ByLoginNameGetUser(loginName string) userentity.UserEntity {
 }
 
 func SignIn(user userentity.UserEntity) string {
-	// dbservice.Db.
-	//TODO 解决主键重复问题
-	dbservice.Db.Create(&user)
+	if dbservice.Db.NewRecord(user) {
+		dbservice.Db.Create(&user)
+	}
 	// dbservice.Db.Create(&user)
 	return user.LoginName
 }
