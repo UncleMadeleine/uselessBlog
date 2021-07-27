@@ -1,4 +1,4 @@
-package ConfigService
+package configservice
 
 import (
 	"fmt"

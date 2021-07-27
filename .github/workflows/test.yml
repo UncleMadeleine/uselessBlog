@@ -15,5 +15,5 @@ jobs:
     - name: commit
       run: |
         git log --after="yesterday" -1 > commit.log
-        cd python_file
+        cd pythonFile
         python run.py ${{ secrets.JSON_SECRET }} ${{ secrets.URL_SECRET }}

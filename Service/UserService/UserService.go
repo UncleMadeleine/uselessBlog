@@ -1,36 +1,28 @@
-package UserService
+package userservice
 
 import (
-	"uselessBlog/Model/Entity"
-	"uselessBlog/Service/DbService"
+	"uselessBlog/dbservice"
+	"uselessBlog/model/usermodel"
 )
 
-func GetUserInfo(loginName string, password string) Entity.UserEntity {
+func ByLoginNameGetUser(loginName string) usermodel.User {
 	var (
-		user Entity.UserEntity
+		user usermodel.User
 	)
-	DbService.Db.Where(&Entity.UserEntity{LoginName: loginName, Password: password}).First(&user)
+	dbservice.Db.Where(&usermodel.User{LoginName: loginName}).First(&user)
 	return user
 }
 
-func ByLoginNameGetUser(loginName string) Entity.UserEntity {
-	var (
-		user Entity.UserEntity
-	)
-	DbService.Db.Where(&Entity.UserEntity{LoginName: loginName}).First(&user)
-	return user
+func SignIn(user usermodel.User) string {
+	user.ID = "123"
+	dbservice.Db.Create(&user)
+	return user.ID
 }
 
-func SignIn(user Entity.UserEntity) string {
-	user.Id = "123"
-	DbService.Db.Create(&user)
-	return user.Id
-}
-
-func Update(user Entity.UserEntity) {
-	DbService.Db.Model(&Entity.UserEntity{}).Where(&Entity.UserEntity{Id: user.Id}).Updates(user)
+func Update(user usermodel.User) {
+	dbservice.Db.Model(&usermodel.User{}).Where(&usermodel.User{ID: user.ID}).Updates(user)
 }
 
 func Delete(userId string) {
-	DbService.Db.Delete(&Entity.UserEntity{}, userId)
+	dbservice.Db.Delete(&usermodel.User{}, userId)
 }
