@@ -2,7 +2,10 @@ package controller
 
 import (
 	"log"
+	"uselessBlog/entity/userentity"
 	"uselessBlog/model/usermodel"
+	"uselessBlog/service/userservice"
+	"uselessBlog/tools"
 
 	"github.com/gin-gonic/gin"
 )
@@ -18,6 +21,11 @@ func Login(c *gin.Context) {
 		log.Fatal(err.Error())
 		return
 	}
+	ent := userentity.UserEntity{}
+	ent.Age = user.Age
+	ent.LoginName = user.LoginName
+	ent.Password = tools.EncodingSha256(user.Password)
+	userservice.ByLoginNameGetUser(ent.LoginName)
 	c.JSON(200, "username: "+user.LoginName)
 }
 
@@ -28,10 +36,16 @@ func Register(c *gin.Context) {
 		log.Fatal(err.Error())
 		return
 	}
+	ent := userentity.UserEntity{}
+	ent.Age = user.Age
+	ent.LoginName = user.LoginName
+	ent.Password = tools.EncodingSha256(user.Password)
+	userservice.SignIn(ent)
 	c.JSON(200, "username: "+user.LoginName)
 }
 
 func Del(c *gin.Context) {
 	userID := c.Param(":id")
-	c.JSON(200, "userID: "+userID)
+	userservice.Delete(userID)
+	c.JSON(200, "userName: "+userID)
 }

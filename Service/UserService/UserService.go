@@ -2,27 +2,29 @@ package userservice
 
 import (
 	"uselessBlog/dbservice"
-	"uselessBlog/model/usermodel"
+	"uselessBlog/entity/userentity"
 )
 
-func ByLoginNameGetUser(loginName string) usermodel.User {
+func ByLoginNameGetUser(loginName string) userentity.UserEntity {
 	var (
-		user usermodel.User
+		user userentity.UserEntity
 	)
-	dbservice.Db.Where(&usermodel.User{LoginName: loginName}).First(&user)
+	dbservice.Db.Where(&userentity.UserEntity{LoginName: loginName}).First(&user)
 	return user
 }
 
-func SignIn(user usermodel.User) string {
-	user.ID = "123"
+func SignIn(user userentity.UserEntity) string {
+	// dbservice.Db.
+	//TODO 解决主键重复问题
 	dbservice.Db.Create(&user)
-	return user.ID
+	// dbservice.Db.Create(&user)
+	return user.LoginName
 }
 
-func Update(user usermodel.User) {
-	dbservice.Db.Model(&usermodel.User{}).Where(&usermodel.User{ID: user.ID}).Updates(user)
-}
+// func Update(user userentity.UserEntity) {
+// 	dbservice.Db.Model(&userentity.UserEntity{}).Where(&userentity.UserEntity{ID: user.ID}).Updates(user)
+// }
 
 func Delete(userId string) {
-	dbservice.Db.Delete(&usermodel.User{}, userId)
+	dbservice.Db.Delete(&userentity.UserEntity{}, userId)
 }

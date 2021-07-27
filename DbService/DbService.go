@@ -2,7 +2,7 @@ package dbservice
 
 import (
 	"fmt"
-	"uselessBlog/model/usermodel"
+	"uselessBlog/entity/userentity"
 	"uselessBlog/service/configservice"
 
 	"gorm.io/driver/mysql"
@@ -25,7 +25,7 @@ func ConnectDb() {
 	}
 
 	// 自动生成表结构
-	dbErr := Db.AutoMigrate(&usermodel.User{})
+	dbErr := Db.AutoMigrate(&userentity.UserEntity{})
 	if dbErr != nil {
 		println(err)
 	}

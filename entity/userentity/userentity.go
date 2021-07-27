@@ -1,14 +1,13 @@
 package userentity
 
-type userEntity struct {
-	ID        string `gorm:"primaryKey"`
+type UserEntity struct {
 	Age       int
 	Password  string
-	LoginName string
+	LoginName string `gorm:"primaryKey"`
 	NickName  string
 }
 
 // 自定义表名称
-func (userEntity) TableName() string {
-	return "User"
+func (UserEntity) TableName() string {
+	return "Users"
 }
