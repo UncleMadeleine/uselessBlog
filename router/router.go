@@ -8,7 +8,7 @@ import (
 
 // Init 初始化路由
 func Init(router *gin.Engine) {
-	home := router.Group("Home")
+	home := router.Group("/")
 	router.RedirectFixedPath = true
 	{
 		home.GET("/", controller.Hello)

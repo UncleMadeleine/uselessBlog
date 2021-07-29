@@ -2,6 +2,7 @@ package controller
 
 import (
 	"log"
+	"net/http"
 	"uselessBlog/entity/userentity"
 	"uselessBlog/model/usermodel"
 	"uselessBlog/service/userservice"
@@ -11,7 +12,9 @@ import (
 )
 
 func Hello(c *gin.Context) {
-	c.JSON(200, "hello")
+
+	c.HTML(http.StatusOK, "index.html", gin.H{"msg": "successful!"})
+	// c.JSON(200, "hello")
 }
 
 func Login(c *gin.Context) {
