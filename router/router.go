@@ -12,6 +12,8 @@ func Init(router *gin.Engine) {
 	router.RedirectFixedPath = true
 	{
 		home.GET("/", controller.Hello)
+		home.GET("/login", controller.HelloLogin)
+		home.GET("/register", controller.HelloRegister)
 	}
 	wqy := router.Group("user")
 	{
