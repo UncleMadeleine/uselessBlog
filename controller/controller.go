@@ -27,12 +27,19 @@ func Login(c *gin.Context) {
 		log.Fatal(err.Error())
 		return
 	}
+	if !tools.Check(user) {
+		//返回前端报错
+		return
+	}
 	ent := userentity.UserEntity{}
-	ent.Age = user.Age
 	ent.LoginName = user.LoginName
 	ent.Password = tools.EncodingSha256(user.Password)
 	//TODO 验证登录
 	en := userservice.ByLoginNameGetUser(ent.LoginName)
+	if en.Password != ent.Password {
+		//返回前端报错
+		return
+	}
 	SaveSession(c, en)
 	c.JSON(200, "username: "+user.LoginName)
 }

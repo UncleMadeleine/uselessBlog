@@ -5,6 +5,7 @@ import (
 	"uselessBlog/entity/userentity"
 )
 
+//ByLoginNameGetUser 以loginname获取用户
 func ByLoginNameGetUser(loginName string) userentity.UserEntity {
 	var (
 		user userentity.UserEntity
@@ -13,6 +14,7 @@ func ByLoginNameGetUser(loginName string) userentity.UserEntity {
 	return user
 }
 
+//SignIn 注册新的用户
 func SignIn(user userentity.UserEntity) string {
 	if dbservice.Db.NewRecord(user) {
 		dbservice.Db.Create(&user)
@@ -25,6 +27,7 @@ func SignIn(user userentity.UserEntity) string {
 // 	dbservice.Db.Model(&userentity.UserEntity{}).Where(&userentity.UserEntity{ID: user.ID}).Updates(user)
 // }
 
-func Delete(userId string) {
-	dbservice.Db.Delete(&userentity.UserEntity{}, userId)
+//Delete 删除用户  TODO
+func Delete(userID string) {
+	dbservice.Db.Delete(&userentity.UserEntity{}, userID)
 }
