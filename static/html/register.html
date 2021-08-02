@@ -78,6 +78,20 @@
             //监听提交
             form.on('submit(formDemo)', function (data) {
                 layer.msg(JSON.stringify(data.field));
+                //网上找来的js代码
+                xmlhttp = new XMLHttpRequest();
+                xmlhttp.open("POST", "localhost:9000/user/register", true);
+                xmlhttp.onreadystatechange = function () { //Call a function when the state changes.
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        cb(xmlhttp.responseText);
+                    }
+                    else{
+                        layer.msg("错误")
+                        console.log("错误"+xmlhttp.readyState+" "+xmlhttp.status)
+                    }
+                };
+                xmlhttp.send(JSON.stringify(data.field));
+                console.log("理论上已发送")
                 return false;
             });
         });
