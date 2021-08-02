@@ -3,8 +3,8 @@ package controller
 import (
 	"log"
 	"net/http"
-	"uselessBlog/entity/userentity"
-	"uselessBlog/model/usermodel"
+	"uselessBlog/entity"
+	"uselessBlog/model"
 	"uselessBlog/service/userservice"
 	"uselessBlog/tools"
 
@@ -12,16 +12,16 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-//Hello : 加载主页
-func Hello(c *gin.Context) {
+//IndexTemplate : 加载主页
+func IndexTemplate(c *gin.Context) {
 
 	c.HTML(http.StatusOK, "index.html", gin.H{"msg": "successful!"})
 	// c.JSON(200, "hello")
 }
 
-//Login : 登录操作
-func Login(c *gin.Context) {
-	var user usermodel.User
+//LoginAPI : 登录操作
+func LoginAPI(c *gin.Context) {
+	var user model.User
 	err := c.BindJSON(&user)
 	if err != nil {
 		log.Fatal(err.Error())
@@ -31,11 +31,11 @@ func Login(c *gin.Context) {
 		//返回前端报错
 		return
 	}
-	ent := userentity.UserEntity{}
+	ent := entity.UserEntity{}
 	ent.LoginName = user.LoginName
 	ent.Password = tools.EncodingSha256(user.Password)
 	//TODO 验证登录
-	en := userservice.ByLoginNameGetUser(ent.LoginName)
+	en := userservice.GetUserByLoginName(ent.LoginName)
 	if en.Password != ent.Password {
 		//返回前端报错
 		return
@@ -44,15 +44,15 @@ func Login(c *gin.Context) {
 	c.JSON(200, "username: "+user.LoginName)
 }
 
-//Register : 注册操作
-func Register(c *gin.Context) {
-	var user usermodel.User
+//RegisterAPI : 注册操作
+func RegisterAPI(c *gin.Context) {
+	var user model.User
 	err := c.BindJSON(&user)
 	if err != nil {
 		log.Fatal(err.Error())
 		return
 	}
-	ent := userentity.UserEntity{}
+	ent := entity.UserEntity{}
 	ent.Age = user.Age
 	ent.LoginName = user.LoginName
 	ent.Password = tools.EncodingSha256(user.Password)
@@ -60,29 +60,41 @@ func Register(c *gin.Context) {
 	c.JSON(200, "username: "+user.LoginName)
 }
 
-//Del : 删除数据库中的用户 TODO
-func Del(c *gin.Context) {
+//UploadAPI 上传博客API
+func UploadAPI(c *gin.Context) {
+	UploadBlog(c)
+}
+
+//DelAPI : 删除数据库中的用户 TODO
+func DelAPI(c *gin.Context) {
 	userID := c.Param(":id")
 	userservice.Delete(userID)
 	c.JSON(200, "userName: "+userID)
 }
 
-//HelloLogin : 加载登录页面
-func HelloLogin(c *gin.Context) {
+//LoginTemplate : 加载登录页面
+func LoginTemplate(c *gin.Context) {
 
 	c.HTML(http.StatusOK, "login.html", gin.H{"msg": "successful!"})
 	// c.JSON(200, "hello")
 }
 
-//HelloRegister : 加载注册页面
-func HelloRegister(c *gin.Context) {
+//UploadTemplate 加载上传界面
+func UploadTemplate(c *gin.Context) {
+
+	c.HTML(http.StatusOK, "uploadpage.html", gin.H{"msg": "successful!"})
+	// c.JSON(200, "hello")
+}
+
+//RegisterTemplate : 加载注册页面
+func RegisterTemplate(c *gin.Context) {
 
 	c.HTML(http.StatusOK, "register.html", gin.H{"msg": "successful!"})
 	// c.JSON(200, "hello")
 }
 
 //SaveSession : 登录时储存session
-func SaveSession(c *gin.Context, us userentity.UserEntity) {
+func SaveSession(c *gin.Context, us entity.UserEntity) {
 	// 初始化session
 	session := sessions.Default(c)
 	// 保存session

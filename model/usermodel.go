@@ -1,4 +1,4 @@
-package usermodel
+package model
 
 //User 用户表单
 type User struct {

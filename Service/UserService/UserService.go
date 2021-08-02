@@ -2,20 +2,20 @@ package userservice
 
 import (
 	"uselessBlog/dbservice"
-	"uselessBlog/entity/userentity"
+	"uselessBlog/entity"
 )
 
-//ByLoginNameGetUser 以loginname获取用户
-func ByLoginNameGetUser(loginName string) userentity.UserEntity {
+//GetUserByLoginName 以loginname获取用户
+func GetUserByLoginName(loginName string) entity.UserEntity {
 	var (
-		user userentity.UserEntity
+		user entity.UserEntity
 	)
-	dbservice.Db.Where(&userentity.UserEntity{LoginName: loginName}).First(&user)
+	dbservice.Db.Where(&entity.UserEntity{LoginName: loginName}).First(&user)
 	return user
 }
 
 //SignIn 注册新的用户
-func SignIn(user userentity.UserEntity) string {
+func SignIn(user entity.UserEntity) string {
 	if dbservice.Db.NewRecord(user) {
 		dbservice.Db.Create(&user)
 	}
@@ -29,5 +29,5 @@ func SignIn(user userentity.UserEntity) string {
 
 //Delete 删除用户  TODO
 func Delete(userID string) {
-	dbservice.Db.Delete(&userentity.UserEntity{}, userID)
+	dbservice.Db.Delete(&entity.UserEntity{}, userID)
 }

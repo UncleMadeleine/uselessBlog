@@ -1,4 +1,4 @@
-package userentity
+package entity
 
 type UserEntity struct {
 	Age       int

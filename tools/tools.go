@@ -4,7 +4,7 @@ import (
 	"crypto/sha256"
 	"encoding/hex"
 	"fmt"
-	"uselessBlog/model/usermodel"
+	usermodel "uselessBlog/model"
 
 	"github.com/gookit/validate"
 )
