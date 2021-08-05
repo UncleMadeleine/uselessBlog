@@ -2,9 +2,11 @@ package dbservice
 
 import (
 	"fmt"
+	"log"
 	"uselessBlog/entity"
 	"uselessBlog/service/configservice"
 
+	// mysql driver
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 
 	// "gorm.io/driver/mysql"
@@ -40,10 +42,44 @@ func ConnectDb() {
 }
 
 //UploadBlog 数据库记录上传博客
-func UploadBlog(ent entity.BlogEntity) string {
-	if Db.NewRecord(ent) {
-		Db.Create(&ent)
+func UploadBlog(ent entity.BlogEntity) (string, bool) {
+	// log.Print(ent)
+	err := Db.Create(&ent).Error
+	if err != nil {
+		log.Print(err)
+		return "", false
 	}
-	// dbservice.Db.Create(&user)
-	return ent.Head
+	// Db.Create(&user)
+	return ent.Head, true
+}
+
+//GetUserByLoginName 以loginname获取用户
+func GetUserByLoginName(loginName string) entity.UserEntity {
+	var (
+		user entity.UserEntity
+	)
+	Db.Where(&entity.UserEntity{LoginName: loginName}).First(&user)
+	return user
+}
+
+//SignIn 注册新的用户
+func SignIn(user entity.UserEntity) (string, bool) {
+	// log.Print(user)
+	log.Print(Db.NewRecord(user))
+	err := Db.Create(&user).Error
+	if err != nil {
+		log.Print(err)
+		return "", false
+	}
+	// Db.Create(&user)
+	return user.LoginName, true
+}
+
+// func Update(user userentity.UserEntity) {
+// 	dbservice.Db.Model(&userentity.UserEntity{}).Where(&userentity.UserEntity{ID: user.ID}).Updates(user)
+// }
+
+//Delete 删除用户  TODO
+func Delete(userID string) {
+	Db.Delete(&entity.UserEntity{}, userID)
 }

@@ -1,5 +1,6 @@
 package entity
 
+//UserEntity 数据库储存用户
 type UserEntity struct {
 	Age       int
 	Password  string
@@ -7,7 +8,7 @@ type UserEntity struct {
 	NickName  string
 }
 
-// 自定义表名称
+//TableName 自定义表名称
 func (UserEntity) TableName() string {
 	return "Users"
 }

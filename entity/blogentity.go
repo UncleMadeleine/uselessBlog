@@ -3,7 +3,7 @@ package entity
 //BlogEntity 数据库储存博客
 type BlogEntity struct {
 	Head     string
-	Number   string `gorm:"primaryKey"`
+	Number   uint `gorm:"AUTO_INCREMENT;primary_key"`
 	Body     string
 	UserName string
 }

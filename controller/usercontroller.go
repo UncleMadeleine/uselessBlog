@@ -5,7 +5,9 @@ import (
 	"strconv"
 	"uselessBlog/entity"
 	"uselessBlog/model"
-	"uselessBlog/service/userservice"
+
+	// "uselessBlog/service/userservice"
+	"uselessBlog/dbservice"
 	"uselessBlog/tools"
 
 	"github.com/gin-contrib/sessions"
@@ -28,7 +30,7 @@ func LoginOperation(c *gin.Context) {
 	ent.LoginName = user.LoginName
 	ent.Password = tools.EncodingSha256(user.Password)
 	//TODO 验证登录
-	en := userservice.GetUserByLoginName(ent.LoginName)
+	en := dbservice.GetUserByLoginName(ent.LoginName)
 	if en.Password != ent.Password {
 		//返回前端报错
 		return
@@ -46,23 +48,32 @@ func RegisterOperation(c *gin.Context) {
 		return
 	}
 	ent := entity.UserEntity{}
-	temp, err := strconv.Atoi(user.Age)
+	intUserAge, err := strconv.Atoi(user.Age)
 	if err != nil {
 		//返回错误给前端
+		c.JSON(201, "年龄不是数字")
 		return
 	}
-	ent.Age = temp
+	ent.Age = intUserAge
 	ent.LoginName = user.LoginName
+	ent.NickName = user.NickName
 	ent.Password = tools.EncodingSha256(user.Password)
-	userservice.SignIn(ent)
-	c.JSON(200, "username: "+user.LoginName)
+	loginname, ok := dbservice.SignIn(ent)
+	if !ok {
+		//返回错误给前端
+		tools.Spread(c, "数据库错误", "可能是用户名重复了")
+		return
+	}
+	log.Print("注册操作正常，loginname：" + loginname)
+	c.JSON(200, "username: "+loginname)
 	// c.JSON(200, "success")
 }
 
 //DelOperation 删除操作
 func DelOperation(c *gin.Context) {
+	// TODO
 	userID := c.Param(":id")
-	userservice.Delete(userID)
+	dbservice.Delete(userID)
 	c.JSON(200, "userName: "+userID)
 }
 

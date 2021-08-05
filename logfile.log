@@ -1,0 +1,45 @@
+2021/08/06 01:08:20 dbservice.go:68: true
+2021/08/06 01:08:20 dbservice.go:71: Error 1062: Duplicate entry 'wqy' for key 'PRIMARY'
+2021/08/06 01:08:20 usercontroller.go:66: 注册操作正常，loginname：
+2021/08/06 01:08:23 dbservice.go:68: true
+2021/08/06 01:08:23 dbservice.go:71: Error 1062: Duplicate entry 'wqy' for key 'PRIMARY'
+2021/08/06 01:08:23 usercontroller.go:66: 注册操作正常，loginname：
+2021/08/06 01:08:48 dbservice.go:68: true
+2021/08/06 01:08:48 dbservice.go:71: Error 1062: Duplicate entry 'wqy' for key 'PRIMARY'
+2021/08/06 01:08:48 usercontroller.go:66: 注册操作正常，loginname：
+2021/08/06 01:13:02 dbservice.go:68: true
+2021/08/06 01:13:02 dbservice.go:71: Error 1062: Duplicate entry 'wqy' for key 'PRIMARY'
+2021/08/06 01:13:02 usercontroller.go:66: 注册操作正常，loginname：
+2021/08/06 01:13:46 dbservice.go:68: true
+2021/08/06 01:13:46 dbservice.go:71: Error 1062: Duplicate entry 'wqy' for key 'PRIMARY'
+2021/08/06 01:13:46 usercontroller.go:66: 注册操作正常，loginname：
+2021/08/06 01:14:07 dbservice.go:68: true
+2021/08/06 01:14:07 dbservice.go:71: Error 1062: Duplicate entry 'wqy' for key 'PRIMARY'
+2021/08/06 01:14:07 usercontroller.go:66: 注册操作正常，loginname：
+2021/08/06 01:14:48 dbservice.go:68: true
+2021/08/06 01:14:48 dbservice.go:71: Error 1062: Duplicate entry 'wqy' for key 'PRIMARY'
+2021/08/06 01:14:48 usercontroller.go:66: 注册操作正常，loginname：
+2021/08/06 01:15:10 dbservice.go:68: true
+2021/08/06 01:15:10 dbservice.go:71: Error 1062: Duplicate entry 'wqy' for key 'PRIMARY'
+2021/08/06 01:15:10 usercontroller.go:66: 注册操作正常，loginname：
+2021/08/06 01:15:33 dbservice.go:68: true
+2021/08/06 01:15:33 dbservice.go:71: Error 1062: Duplicate entry 'wqy' for key 'PRIMARY'
+2021/08/06 01:15:33 usercontroller.go:66: 注册操作正常，loginname：
+2021/08/06 01:22:00 dbservice.go:68: true
+2021/08/06 01:22:00 dbservice.go:71: Error 1062: Duplicate entry 'wqy' for key 'PRIMARY'
+2021/08/06 01:22:00 usercontroller.go:66: 注册操作正常，loginname：
+2021/08/06 01:22:17 dbservice.go:68: true
+2021/08/06 01:22:17 dbservice.go:71: Error 1062: Duplicate entry 'wqy' for key 'PRIMARY'
+2021/08/06 01:22:17 usercontroller.go:66: 注册操作正常，loginname：
+2021/08/06 01:26:45 dbservice.go:68: true
+2021/08/06 01:26:45 dbservice.go:71: Error 1062: Duplicate entry 'wqy' for key 'PRIMARY'
+2021/08/06 01:33:45 dbservice.go:68: true
+2021/08/06 01:33:45 dbservice.go:71: Error 1062: Duplicate entry 'wqy' for key 'PRIMARY'
+2021/08/06 01:33:55 dbservice.go:68: true
+2021/08/06 01:33:55 dbservice.go:71: Error 1062: Duplicate entry 'wqy' for key 'PRIMARY'
+2021/08/06 01:35:07 dbservice.go:68: true
+2021/08/06 01:35:07 dbservice.go:71: Error 1062: Duplicate entry 'wqy' for key 'PRIMARY'
+2021/08/06 01:35:27 dbservice.go:68: true
+2021/08/06 01:35:27 dbservice.go:71: Error 1062: Duplicate entry 'wqy' for key 'PRIMARY'
+2021/08/06 01:35:35 dbservice.go:68: true
+2021/08/06 01:35:35 dbservice.go:71: Error 1062: Duplicate entry 'wqy' for key 'PRIMARY'
