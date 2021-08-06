@@ -22,7 +22,7 @@ func Init(router *gin.Engine) {
 		wqy.POST("/login", controller.LoginAPI)
 		wqy.POST("/register", controller.RegisterAPI)
 		wqy.DELETE("/del/:id", controller.DelAPI)
-		home.POST("/upload", controller.UploadAPI)
+		wqy.POST("/upload", controller.UploadAPI)
 	}
 	router.Run(":9000")
 

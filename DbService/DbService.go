@@ -34,13 +34,13 @@ func ConnectDb() {
 	// 自动生成表结构
 	dbErr := Db.AutoMigrate(&entity.UserEntity{})
 	if dbErr != nil {
-		log.Print(err)
-		print(err)
+		log.Print(dbErr)
+		print(dbErr)
 	}
 	dbErr = Db.AutoMigrate(&entity.BlogEntity{})
 	if dbErr != nil {
-		log.Print(err)
-		print(err)
+		log.Print(dbErr)
+		print(dbErr)
 	}
 }
 

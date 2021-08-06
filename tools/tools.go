@@ -3,7 +3,7 @@ package tools
 import (
 	"crypto/sha256"
 	"encoding/hex"
-	"fmt"
+	"log"
 	usermodel "uselessBlog/model"
 
 	"github.com/gookit/validate"
@@ -72,8 +72,8 @@ func Check(u usermodel.User) bool {
 		return true
 	}
 
-	fmt.Println(v.Errors)               // 所有的错误消息
-	fmt.Println(v.Errors.One())         // 返回随机一条错误消息
-	fmt.Println(v.Errors.Field("Name")) // 返回该字段的错误消息
+	log.Print(v.Errors) // 所有的错误消息
+	// log.Print(v.Errors.One())         // 返回随机一条错误消息
+	// log.Print(v.Errors.Field("Name")) // 返回该字段的错误消息
 	return false
 }

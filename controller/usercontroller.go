@@ -18,14 +18,8 @@ func LoginOperation(c *gin.Context) {
 	var user model.User
 	err := c.BindJSON(&user)
 	if err != nil {
-		log.Fatal(err.Error())
+		log.Print(err)
 		tools.Spread(c, "系统错误", "绑定json邦出问题了")
-		return
-	}
-	if !tools.Check(user) {
-		log.Printf("用户信息有误:")
-		log.Print(user)
-		tools.Spread(c, "填写错误", "信息是不是填错了")
 		return
 	}
 	ent := entity.UserEntity{}
@@ -50,7 +44,12 @@ func RegisterOperation(c *gin.Context) {
 	var user model.User
 	err := c.BindJSON(&user)
 	if err != nil {
-		log.Fatal(err.Error())
+		log.Print(err)
+		tools.Spread(c, "系统错误", "绑定json邦出问题了")
+		return
+	}
+	if !tools.Check(user) {
+		tools.Spread(c, "注册错误", "密码长度虚不小于8")
 		return
 	}
 	ent := entity.UserEntity{}
@@ -68,10 +67,9 @@ func RegisterOperation(c *gin.Context) {
 	loginname, ok := dbservice.SignIn(ent)
 	if !ok {
 		tools.Spread(c, "数据库错误", "可能是用户名重复了")
-		//此处不打印log
 		return
 	}
-	log.Print("注册操作正常，loginname：" + loginname)
+	// log.Print("注册操作正常，loginname：" + loginname)
 	c.JSON(200, "username: "+loginname)
 	// c.JSON(200, "success")
 }

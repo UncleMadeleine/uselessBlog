@@ -14,6 +14,7 @@ import (
 
 //UploadBlog 上传博客
 func UploadBlog(c *gin.Context) {
+	// log.Print("正在上传")
 	userName := c.PostForm("loginname")
 	fmt.Println(userName)
 	file, err := c.FormFile("file")
