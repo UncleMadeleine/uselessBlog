@@ -6,6 +6,7 @@ type UserEntity struct {
 	Password  string
 	LoginName string `gorm:"primaryKey"`
 	NickName  string
+	Admin     bool
 }
 
 //TableName 自定义表名称

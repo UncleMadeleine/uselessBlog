@@ -6,7 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// Init 初始化路由
+//Init 初始化路由
 func Init(router *gin.Engine) {
 	home := router.Group("/")
 	router.RedirectFixedPath = true

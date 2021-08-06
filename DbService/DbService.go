@@ -27,16 +27,19 @@ func ConnectDb() {
 		dbConfig.HOST, dbConfig.NAME)
 	Db, err = gorm.Open("mysql", connectStr)
 	if err != nil {
+		log.Print(err)
 		panic(err)
 	}
 
 	// 自动生成表结构
 	dbErr := Db.AutoMigrate(&entity.UserEntity{})
 	if dbErr != nil {
-		println(err)
+		log.Print(err)
+		print(err)
 	}
 	dbErr = Db.AutoMigrate(&entity.BlogEntity{})
 	if dbErr != nil {
+		log.Print(err)
 		print(err)
 	}
 }
@@ -54,12 +57,16 @@ func UploadBlog(ent entity.BlogEntity) (string, bool) {
 }
 
 //GetUserByLoginName 以loginname获取用户
-func GetUserByLoginName(loginName string) entity.UserEntity {
+func GetUserByLoginName(loginName string) (entity.UserEntity, bool) {
 	var (
 		user entity.UserEntity
 	)
-	Db.Where(&entity.UserEntity{LoginName: loginName}).First(&user)
-	return user
+	err := Db.Where(&entity.UserEntity{LoginName: loginName}).First(&user).Error
+	if err != nil {
+		log.Print(err)
+		return user, false
+	}
+	return user, true
 }
 
 //SignIn 注册新的用户
@@ -80,6 +87,11 @@ func SignIn(user entity.UserEntity) (string, bool) {
 // }
 
 //Delete 删除用户  TODO
-func Delete(userID string) {
-	Db.Delete(&entity.UserEntity{}, userID)
+func Delete(userID string) bool {
+	err := Db.Delete(&entity.UserEntity{}, userID).Error
+	if err != nil {
+		log.Print(err)
+		return false
+	}
+	return true
 }
