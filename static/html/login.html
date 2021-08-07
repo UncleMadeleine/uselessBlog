@@ -70,6 +70,8 @@
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                         // console.log("正常的")
                         cb(xmlhttp.responseText);
+                        var responseText = xmlhttp.responseText;
+                        layer.open(JSON.parse(responseText));
                     }
                     else if (xmlhttp.readyState == 4 && xmlhttp.status == 201) {
                         // console.log(xmlhttp)

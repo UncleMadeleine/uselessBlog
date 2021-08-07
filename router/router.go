@@ -24,6 +24,10 @@ func Init(router *gin.Engine) {
 		wqy.DELETE("/del/:id", controller.DelAPI)
 		wqy.POST("/upload", controller.UploadAPI)
 	}
+	// ljw := router.Group("blog")
+	// {
+	// 	//TODO:
+	// }
 	router.Run(":9000")
 
 }
