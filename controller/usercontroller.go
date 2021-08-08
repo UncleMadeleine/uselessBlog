@@ -35,6 +35,7 @@ func LoginOperation(c *gin.Context) {
 		tools.Spread(c, 201, "登录失败", "用户名或密码错误")
 		return
 	}
+	// LogOut(c)
 	SaveSession(c, en)
 	tools.Spread(c, 200, "登录成功", "登录成功")
 }
@@ -89,12 +90,11 @@ func DelOperation(c *gin.Context) {
 
 //SaveSession 登录时储存session
 func SaveSession(c *gin.Context, us entity.UserEntity) {
-	// 初始化session
 	session := sessions.Default(c)
-	// 保存session
-	session.Set("Loginname", us.LoginName)
-	session.Set("NickName", us.NickName)
-	session.Set("Age", us.Age)
+	session.Set("loginname", us.LoginName)
+	session.Set("nickName", us.NickName)
+	session.Set("age", us.Age)
+	// LogOut(c)
 	err := session.Save()
 	if err != nil {
 		log.Print("session储存失败")
@@ -105,4 +105,17 @@ func SaveSession(c *gin.Context, us entity.UserEntity) {
 	// if session.Get("Loginname") != nil {
 	// 	//ops
 	// }
+}
+
+//LogOut 注销登录
+func LogOut(c *gin.Context) {
+	session := sessions.Default(c)
+	session.Clear()
+	err := session.Save()
+	if err != nil {
+		log.Print(err)
+		tools.Spread(c, 201, "出错了", "注销失败")
+		return
+	}
+	// tools.Spread(c, 200, "注销成功", "注销成功")
 }

@@ -8,18 +8,19 @@ import (
 	"uselessBlog/entity"
 	"uselessBlog/tools"
 
+	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
 )
 
 //UploadBlog 上传博客
 func UploadBlog(c *gin.Context) {
 	// log.Print("正在上传")
-	// session := sessions.Default(c)
-	// if session.Get("loginname") == nil {
-	// 	tools.Spread(c, 201, "出错了", "未登录")
-	// }
-	// userName := session.Get("loginname")
-	// log.Print("session中储存的用户:" + userName.(string))
+	session := sessions.Default(c)
+	if session.Get("loginname") == nil {
+		tools.Spread(c, 201, "出错了", "未登录")
+	}
+	userName := session.Get("loginname")
+	log.Print("session中储存的用户:" + userName.(string))
 	file, err := c.FormFile("file")
 	if err != nil {
 		log.Print(err)
@@ -36,6 +37,6 @@ func UploadBlog(c *gin.Context) {
 	var ent entity.BlogEntity
 	ent.Head = file.Filename
 	ent.Body = fileName[1:]
-	// ent.UserName = userName.(string)
+	ent.UserName = userName.(string)
 	dbservice.UploadBlog(ent)
 }
