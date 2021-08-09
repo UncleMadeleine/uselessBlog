@@ -2,11 +2,9 @@ package controller
 
 import (
 	"log"
-	"strconv"
+	"uselessBlog/dbservice"
 	"uselessBlog/entity"
 	"uselessBlog/model"
-
-	"uselessBlog/dbservice"
 	"uselessBlog/tools"
 
 	"github.com/gin-contrib/sessions"
@@ -54,16 +52,13 @@ func RegisterOperation(c *gin.Context) {
 		return
 	}
 	ent := entity.UserEntity{}
-	intUserAge, err := strconv.Atoi(user.Age)
-	if err != nil {
+	ent.Age = tools.StrToInt(user.Age)
+	if ent.Age == 0 {
 		tools.Spread(c, 201, "年龄有误", "可能输入的不是数字")
-		log.Print(err)
-		return
 	}
-	ent.Age = intUserAge
 	ent.LoginName = user.LoginName
 	ent.NickName = user.NickName
-	ent.Admin = false
+	ent.Admin = 1
 	ent.Password = tools.EncodingSha256(user.Password)
 	loginname, ok := dbservice.SignIn(ent)
 	if !ok {

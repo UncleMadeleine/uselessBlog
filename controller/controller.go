@@ -15,6 +15,20 @@ func IndexTemplate(c *gin.Context) {
 	// c.JSON(200, "hello")
 }
 
+//BlogMedalTemplate 加载各博客页面
+func BlogMedalTemplate(c *gin.Context) {
+	// blogID := c.Param(":id")
+	c.HTML(http.StatusOK, "Medal.html", gin.H{"msg": "successful!"})
+	// c.JSON(200, "hello")
+}
+
+//BlogMedalAPI 便于js动态加载博客内容
+func BlogMedalAPI(c *gin.Context) {
+	blogID := c.Param(":id")
+	BlogLoad(c, blogID)
+	// c.JSON(200, "hello")
+}
+
 //LoginAPI : 登录操作
 func LoginAPI(c *gin.Context) {
 	LoginOperation(c)

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- TODO: -->
+    <title>TODO</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/static/css/layui.css" media="all">
+</head>
+
+<body>
+    <ul class="layui-nav" lay-filter="">
+        <li class="layui-nav-item"><a href="http://localhost:9000/">首页</a></li>
+        <li class="layui-nav-item"><a href="http://localhost:9000/register">注册</a></li>
+        <li class="layui-nav-item"><a href="http://localhost:9000/login">登录</a></li>
+        <li class="layui-nav-item"><a href="http://localhost:9000/upload">发帖</a></li>
+    </ul>
+    
+    <script src="/static/layui.js" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        // TODO:
+        xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("GET", "/blog/API/", true); //TODO:康康ID怎么弄
+        xmlhttp.onreadystatechange = function () { //Call a function when the state changes.
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                var responseText = xmlhttp.responseText;
+                // layer.open(JSON.parse(responseText));
+
+            }
+            else if (xmlhttp.readyState == 4 && xmlhttp.status == 201) {
+                var responseText = xmlhttp.responseText;
+                layer.open(JSON.parse(responseText));
+            }
+        };
+        xmlhttp.send(JSON.stringify(data.field));
+    </script>
+
+</body>
+
+</html>

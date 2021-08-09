@@ -2,6 +2,7 @@ package controller
 
 import (
 	"log"
+	"path"
 	"strconv"
 	"time"
 	"uselessBlog/dbservice"
@@ -27,13 +28,14 @@ func UploadBlog(c *gin.Context) {
 		tools.Spread(c, 201, "出错了", "文件有误")
 		return
 	}
-	fileName := "/localfiles/" + strconv.FormatInt(time.Now().Unix(), 10) + file.Filename
-	// err = c.SaveUploadedFile(file, fileName)
-	// if err != nil {
-	// 	log.Print(err)
-	// 	tools.Spread(c, 201, "储存文件失败", "储存文件失败")
-	// 	return
-	// }
+	// fileName := "/localfiles/" + strconv.FormatInt(time.Now().Unix(), 10) + file.Filename
+	fileName := path.Join("/localfiles", strconv.FormatInt(time.Now().Unix(), 10)+file.Filename)
+	err = c.SaveUploadedFile(file, fileName)
+	if err != nil {
+		log.Print(err)
+		tools.Spread(c, 201, "储存文件失败", "储存文件失败")
+		return
+	}
 	var ent entity.BlogEntity
 	ent.Head = file.Filename
 	ent.Body = fileName[1:]
@@ -44,4 +46,9 @@ func UploadBlog(c *gin.Context) {
 		return
 	}
 	tools.Spread(c, 200, "上传成功", "上传"+blogName+"博客成功")
+}
+
+//BlogLoad 动态加载博客
+func BlogLoad(c *gin.Context, blogID string) {
+
 }

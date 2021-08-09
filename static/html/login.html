@@ -69,7 +69,7 @@
                 xmlhttp.onreadystatechange = function () { //Call a function when the state changes.
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                         // console.log("正常的")
-                        cb(xmlhttp.responseText);
+                        // cb(xmlhttp.responseText);
                         var responseText = xmlhttp.responseText;
                         layer.open(JSON.parse(responseText));
                     }

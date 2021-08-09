@@ -82,6 +82,24 @@ func SignIn(user entity.UserEntity) (string, bool) {
 	return user.LoginName, true
 }
 
+//FindBlogs 获取blogs的所有数据
+func FindBlogs() []*entity.BlogEntity {
+	var blogs = make([]*entity.BlogEntity, 0)
+	Db.Model(&entity.BlogEntity{}).Find(&blogs)
+	return blogs
+}
+
+//GetBlogsByID 通过ID获取blogs的数据
+func GetBlogsByID(number uint) (entity.BlogEntity, bool) {
+	var blog = entity.BlogEntity{}
+	err := Db.Where(&entity.BlogEntity{Number: number}).First(&blog).Error
+	if err != nil {
+		log.Print(err)
+		return blog, false
+	}
+	return blog, true
+}
+
 // func Update(user userentity.UserEntity) {
 // 	dbservice.Db.Model(&userentity.UserEntity{}).Where(&userentity.UserEntity{ID: user.ID}).Updates(user)
 // }
