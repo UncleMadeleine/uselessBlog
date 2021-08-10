@@ -82,8 +82,8 @@ func SignIn(user entity.UserEntity) (string, bool) {
 	return user.LoginName, true
 }
 
-//FindBlogs 获取blogs的所有数据
-func FindBlogs() []*entity.BlogEntity {
+//FindAllBlogs 获取blogs的所有数据
+func FindAllBlogs() []*entity.BlogEntity {
 	var blogs = make([]*entity.BlogEntity, 0)
 	Db.Model(&entity.BlogEntity{}).Find(&blogs)
 	return blogs

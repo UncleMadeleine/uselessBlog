@@ -1,6 +1,9 @@
 package tools
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-gonic/gin"
+	// "google.golang.org/grpc/status"
+)
 
 //Spread 把后端错误传回前端
 func Spread(c *gin.Context, state int, str1 string, str2 string) {
@@ -11,7 +14,22 @@ func Spread(c *gin.Context, state int, str1 string, str2 string) {
 	c.JSON(state, errMessage)
 }
 
+//TypeReturn 返回正确的gin.H类型
+func TypeReturn(data interface{}) gin.H {
+	return gin.H{
+		"status": 200,
+		"msg":    "success!",
+		"data":   data,
+	}
+}
+
 type msg struct {
 	Title   string `json:"title"`
 	Content string `json:"content"`
+}
+
+type returnType struct {
+	Msg    string
+	Data   interface{}
+	Status int
 }

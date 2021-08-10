@@ -24,19 +24,21 @@
     <script>
         // TODO:
         xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("GET", "/blog/API/", true); //TODO:康康ID怎么弄
-        xmlhttp.onreadystatechange = function () { //Call a function when the state changes.
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                var responseText = xmlhttp.responseText;
-                // layer.open(JSON.parse(responseText));
+        var url =  docment.currentScript.src;
+        console.log(url)
+        // xmlhttp.open("GET", "/blog/API/", true); //TODO:康康ID怎么弄
+        // xmlhttp.onreadystatechange = function () { //Call a function when the state changes.
+        //     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        //         var responseText = xmlhttp.responseText;
+        //         // layer.open(JSON.parse(responseText));
 
-            }
-            else if (xmlhttp.readyState == 4 && xmlhttp.status == 201) {
-                var responseText = xmlhttp.responseText;
-                layer.open(JSON.parse(responseText));
-            }
-        };
-        xmlhttp.send(JSON.stringify(data.field));
+        //     }
+        //     else if (xmlhttp.readyState == 4 && xmlhttp.status == 201) {
+        //         var responseText = xmlhttp.responseText;
+        //         layer.open(JSON.parse(responseText));
+        //     }
+        // };
+        // xmlhttp.send(JSON.stringify(data.field));
     </script>
 
 </body>

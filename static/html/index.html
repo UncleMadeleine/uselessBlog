@@ -26,12 +26,20 @@
             </li> -->
         <!-- <li class="layui-nav-item"><a href="">社区</a></li> -->
     </ul>
+
+
     <fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
         <legend>信息流 - 手工加载</legend>
     </fieldset>
 
     <ul class="flow-default" style="height: 300px;" id="LAY_demo2">
-        
+        <li id="showlist1" style="display:none">
+		    <a>
+                <div>
+		        	<h2>暂无博客</h2>
+                </div>
+		    </a>
+	    </li>
     </ul>
     <script src="/static/layui.js" charset="utf-8"></script>
     <script>
@@ -81,6 +89,37 @@
             });
 
         });
+
+        //TODO:对自身使用get请求
+        var url = window.location.href;
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("POST", url, true);
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                var responseText = xmlhttp.responseText;
+                console.log(responseText);
+                console.log(JSON.parse(responseText));
+                // layer.open(JSON.parse(responseText));
+
+            }
+            else if (xmlhttp.readyState == 4 && xmlhttp.status == 201) {
+                var responseText = xmlhttp.responseText;
+                layer.open(JSON.parse(responseText));
+            }
+        };
+        xmlhttp.send();
+        // console.log(responseText)
+
+        //TODO:js加载<ul>
+        // var ul1 = document.getElementById("showlist1");
+        // var projectid = data.Data.Projects1["0"].ProjectId;
+
+
+
+
+
+
+
     </script>
 
 </body>

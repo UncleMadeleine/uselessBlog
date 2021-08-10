@@ -12,6 +12,7 @@ func Init(router *gin.Engine) {
 	router.RedirectFixedPath = true
 	{
 		home.GET("/", controller.IndexTemplate)
+		home.POST("/", controller.IndexAPI)
 		home.GET("/login", controller.LoginTemplate)
 		home.GET("/register", controller.RegisterTemplate)
 		home.GET("/upload", controller.UploadTemplate)
