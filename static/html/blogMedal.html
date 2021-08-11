@@ -19,7 +19,7 @@
         <li class="layui-nav-item"><a href="http://localhost:9000/upload">发帖</a></li>
     </ul>
 
-    <div id="content">
+    <div id="content" style="margin-left: 120px;margin-right: 120px;">
 
     </div>
 
@@ -31,7 +31,7 @@
         xmlhttp = new XMLHttpRequest();
         var url = window.location.href;
         xmlhttp.open("POST", url, true);
-        xmlhttp.onreadystatechange = function () { //Call a function when the state changes.
+        xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 var responseText = xmlhttp.responseText;
                 // console.log(responseText)

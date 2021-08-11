@@ -37,6 +37,7 @@
        
         //对自身使用post请求
         var url = window.location.href;
+
         xmlhttp = new XMLHttpRequest();
         var data;
         xmlhttp.open("POST", url, true);
@@ -46,7 +47,7 @@
                 data = JSON.parse(responseText).data
                 //插入<li>标签
                 var ul = document.getElementById("LAY_demo2");
-                console.log(data.length)
+                // console.log(data.length)
                 var blog_number = data.length
                 var li = document.createElement("li");
                 var a = document.createElement("a");
@@ -55,7 +56,7 @@
                 for (var i = 0; i < blog_number; ++i) {
                     ul.appendChild(li);
                     li.appendChild(a);
-                    a.setAttribute('href', 'http://www.baidu.com/');
+                    a.setAttribute('href', 'http://localhost:9000/blog/'+data[i].number);
                     a.appendChild(div);
                     h2.innerHTML = data[i].head;
                     div.appendChild(h2);
