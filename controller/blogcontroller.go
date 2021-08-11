@@ -38,7 +38,8 @@ func UploadBlog(c *gin.Context) {
 	}
 	var ent entity.BlogEntity
 	ent.Head = file.Filename
-	ent.Body = fileName[1:]
+	ent.Head = ent.Head[:len(ent.Head)-3]
+	ent.Body = fileName[2:]
 	ent.UserName = userName.(string)
 	blogName, ok := dbservice.UploadBlog(ent)
 	if !ok {

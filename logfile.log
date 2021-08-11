@@ -1,16 +1,5 @@
-2021/08/11 00:57:46 dbservice.go:37: &{{{0 0} 0 0 0 0} 0xc00068cf40 <nil> 0 0xc00036d110 false 0 {0xc000139ea0} 0xc000432c60 {{0 0} {<nil>} map[] 0} 0xc00036d1e0 <nil> 0xc00041dc20 false <nil>}
-2021/08/11 00:57:46 dbservice.go:42: &{{{0 0} 0 0 0 0} 0xc00068d080 <nil> 0 0xc00036d110 false 0 {0xc000139ea0} 0xc0004331e0 {{0 0} {<nil>} map[] 0} 0xc00036d1e0 <nil> 0xc000606300 false <nil>}
-2021/08/11 01:09:25 dbservice.go:37: &{{{0 0} 0 0 0 0} 0xc000506000 <nil> 0 0xc000510ea0 false 0 {0xc0000ffef0} 0xc000424160 {{0 0} {<nil>} map[] 0} 0xc000510f70 <nil> 0xc000508060 false <nil>}
-2021/08/11 01:09:25 dbservice.go:42: &{{{0 0} 0 0 0 0} 0xc000062180 <nil> 0 0xc000510ea0 false 0 {0xc0000ffef0} 0xc00058a2c0 {{0 0} {<nil>} map[] 0} 0xc000510f70 <nil> 0xc000708720 false <nil>}
-2021/08/11 01:35:21 dbservice.go:37: &{{{0 0} 0 0 0 0} 0xc000416a00 <nil> 0 0xc000490f70 false 0 {0xc0000ffef0} 0xc0004389a0 {{0 0} {<nil>} map[] 0} 0xc000491040 <nil> 0xc00048d7a0 false <nil>}
-2021/08/11 01:35:21 dbservice.go:42: &{{{0 0} 0 0 0 0} 0xc00059e140 <nil> 0 0xc000490f70 false 0 {0xc0000ffef0} 0xc0005bc160 {{0 0} {<nil>} map[] 0} 0xc000491040 <nil> 0xc0003e08c0 false <nil>}
-2021/08/11 01:37:00 dbservice.go:37: &{{{0 0} 0 0 0 0} 0xc000502040 <nil> 0 0xc0004c31e0 false 0 {0xc00017fef0} 0xc0005ba160 {{0 0} {<nil>} map[] 0} 0xc0004c32b0 <nil> 0xc00008e060 false <nil>}
-2021/08/11 01:37:00 dbservice.go:42: &{{{0 0} 0 0 0 0} 0xc0005022c0 <nil> 0 0xc0004c31e0 false 0 {0xc00017fef0} 0xc0005ba6e0 {{0 0} {<nil>} map[] 0} 0xc0004c32b0 <nil> 0xc00008ea00 false <nil>}
-2021/08/11 01:38:59 dbservice.go:37: &{{{0 0} 0 0 0 0} 0xc000702080 <nil> 0 0xc00068d1e0 false 0 {0xc00017fef0} 0xc000532160 {{0 0} {<nil>} map[] 0} 0xc00068d2b0 <nil> 0xc000090060 false <nil>}
-2021/08/11 01:38:59 dbservice.go:42: &{{{0 0} 0 0 0 0} 0xc0007021c0 <nil> 0 0xc00068d1e0 false 0 {0xc00017fef0} 0xc000532580 {{0 0} {<nil>} map[] 0} 0xc00068d2b0 <nil> 0xc0000905c0 false <nil>}
-2021/08/11 01:39:22 dbservice.go:37: &{{{0 0} 0 0 0 0} 0xc000114000 <nil> 0 0xc00042ef70 false 0 {0xc000139ea0} 0xc0005262c0 {{0 0} {<nil>} map[] 0} 0xc00042f040 <nil> 0xc00041c320 false <nil>}
-2021/08/11 01:39:22 dbservice.go:42: &{{{0 0} 0 0 0 0} 0xc0001ac1c0 <nil> 0 0xc00042ef70 false 0 {0xc000139ea0} 0xc0004502c0 {{0 0} {<nil>} map[] 0} 0xc00042f040 <nil> 0xc000004740 false <nil>}
-2021/08/11 01:41:14 dbservice.go:37: &{{{0 0} 0 0 0 0} 0xc000614080 <nil> 0 0xc000332ea0 false 0 {0xc0000ffef0} 0xc00061c160 {{0 0} {<nil>} map[] 0} 0xc000332f70 <nil> 0xc0005a20c0 false <nil>}
-2021/08/11 01:41:14 dbservice.go:42: &{{{0 0} 0 0 0 0} 0xc0005a5080 <nil> 0 0xc000332ea0 false 0 {0xc0000ffef0} 0xc000148840 {{0 0} {<nil>} map[] 0} 0xc000332f70 <nil> 0xc000484020 false <nil>}
-2021/08/11 01:54:13 dbservice.go:37: &{{{0 0} 0 0 0 0} 0xc000532300 <nil> 0 0xc0003e1520 false 0 {0xc00017fef0} 0xc000588160 {{0 0} {<nil>} map[] 0} 0xc0003e15f0 <nil> 0xc000488020 false <nil>}
-2021/08/11 01:54:13 dbservice.go:42: &{{{0 0} 0 0 0 0} 0xc000062080 <nil> 0 0xc0003e1520 false 0 {0xc00017fef0} 0xc0004c2160 {{0 0} {<nil>} map[] 0} 0xc0003e15f0 <nil> 0xc000520620 false <nil>}
+2021/08/11 23:34:23 dbservice.go:37: &{{{0 0} 0 0 0 0} 0xc0005029c0 <nil> 0 0xc00050aea0 false 0 {0xc00017fef0} 0xc00047ec60 {{0 0} {<nil>} map[] 0} 0xc00050af70 <nil> 0xc000091860 false <nil>}
+2021/08/11 23:34:23 dbservice.go:42: &{{{0 0} 0 0 0 0} 0xc0000620c0 <nil> 0 0xc00050aea0 false 0 {0xc00017fef0} 0xc0004d2160 {{0 0} {<nil>} map[] 0} 0xc00050af70 <nil> 0xc00048a540 false <nil>}
+2021/08/11 23:34:58 usercontroller.go:98: 储存成功，session储存用户：120
+2021/08/11 23:35:57 dbservice.go:37: &{{{0 0} 0 0 0 0} 0xc000468d40 <nil> 0 0xc000495040 false 0 {0xc00017fef0} 0xc00052ab00 {{0 0} {<nil>} map[] 0} 0xc000495110 <nil> 0xc00008f4e0 false <nil>}
+2021/08/11 23:35:57 dbservice.go:42: &{{{0 0} 0 0 0 0} 0xc00051c380 <nil> 0 0xc000495040 false 0 {0xc00017fef0} 0xc0004ce160 {{0 0} {<nil>} map[] 0} 0xc000495110 <nil> 0xc00048c380 false <nil>}
