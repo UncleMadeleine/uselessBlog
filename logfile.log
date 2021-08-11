@@ -1,5 +1,0 @@
-2021/08/11 23:34:23 dbservice.go:37: &{{{0 0} 0 0 0 0} 0xc0005029c0 <nil> 0 0xc00050aea0 false 0 {0xc00017fef0} 0xc00047ec60 {{0 0} {<nil>} map[] 0} 0xc00050af70 <nil> 0xc000091860 false <nil>}
-2021/08/11 23:34:23 dbservice.go:42: &{{{0 0} 0 0 0 0} 0xc0000620c0 <nil> 0 0xc00050aea0 false 0 {0xc00017fef0} 0xc0004d2160 {{0 0} {<nil>} map[] 0} 0xc00050af70 <nil> 0xc00048a540 false <nil>}
-2021/08/11 23:34:58 usercontroller.go:98: 储存成功，session储存用户：120
-2021/08/11 23:35:57 dbservice.go:37: &{{{0 0} 0 0 0 0} 0xc000468d40 <nil> 0 0xc000495040 false 0 {0xc00017fef0} 0xc00052ab00 {{0 0} {<nil>} map[] 0} 0xc000495110 <nil> 0xc00008f4e0 false <nil>}
-2021/08/11 23:35:57 dbservice.go:42: &{{{0 0} 0 0 0 0} 0xc00051c380 <nil> 0 0xc000495040 false 0 {0xc00017fef0} 0xc0004ce160 {{0 0} {<nil>} map[] 0} 0xc000495110 <nil> 0xc00048c380 false <nil>}

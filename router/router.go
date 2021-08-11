@@ -30,7 +30,7 @@ func Init(router *gin.Engine) {
 		//TODO:
 		// dbvalues := dbservice.FindBlogs()
 		ljw.GET("/:id", controller.BlogMedalTemplate)
-		ljw.GET("/API/:id", controller.BlogMedalAPI)
+		ljw.POST("/:id", controller.BlogMedalAPI)
 	}
 	router.Run(":9000")
 

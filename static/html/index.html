@@ -43,13 +43,8 @@
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 var responseText = xmlhttp.responseText;
-                // console.log(responseText);
-                // console.log(JSON.parse(responseText));
                 data = JSON.parse(responseText).data
-                // console.log(data)
-                // layer.open(JSON.parse(responseText));
-                // var ul1 = document.getElementById("showlist1");
-                // var projectid = data.Data.Projects1["0"].ProjectId;
+                //插入<li>标签
                 var ul = document.getElementById("LAY_demo2");
                 console.log(data.length)
                 var blog_number = data.length
@@ -57,8 +52,6 @@
                 var a = document.createElement("a");
                 var div = document.createElement("div");
                 var h2 = document.createElement("h2");
-                // var span1 = document.createElement("span");
-                // var span2 = document.createElement("span");
                 for (var i = 0; i < blog_number; ++i) {
                     ul.appendChild(li);
                     li.appendChild(a);
@@ -66,8 +59,6 @@
                     a.appendChild(div);
                     h2.innerHTML = data[i].head;
                     div.appendChild(h2);
-                    // div.appendChild(span1);
-                    // div.appendChild(span2);
                 }
 
             }
@@ -77,31 +68,6 @@
             }
         };
         xmlhttp.send();
-        // //TODO:js加载<ul>
-        // var ul1 = document.getElementById("showlist1");
-        // // var projectid = data.Data.Projects1["0"].ProjectId;
-        // var ul = document.getElementById("LAY_demo2");
-        // console.log(data.length)
-        // var blog_number = data.length
-        // var li = document.createElement("li");
-        // var a = document.createElement("a");
-        // var div = document.createElement("div");
-        // var h2 = document.createElement("h2");
-        // // var span1 = document.createElement("span");
-        // // var span2 = document.createElement("span");
-        // for(var i = 0 ; i < blog_number ; ++i){
-        //     ul.appendChild(li);
-        //     li.appendChild(a);
-        //     a.appendChild(div);
-        //     h2.innerHTML = data[i].head;
-        //     div.appendChild(h2);
-        //     // div.appendChild(span1);
-        //     // div.appendChild(span2);
-        // }
-
-
-
-
 
 
     </script>

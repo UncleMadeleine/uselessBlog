@@ -18,27 +18,32 @@
         <li class="layui-nav-item"><a href="http://localhost:9000/login">登录</a></li>
         <li class="layui-nav-item"><a href="http://localhost:9000/upload">发帖</a></li>
     </ul>
+
+    <div id="content">
+
+    </div>
+
     
     <script src="/static/layui.js" charset="utf-8"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
         // TODO:
         xmlhttp = new XMLHttpRequest();
-        var url =  docment.currentScript.src;
-        console.log(url)
-        // xmlhttp.open("GET", "/blog/API/", true); //TODO:康康ID怎么弄
-        // xmlhttp.onreadystatechange = function () { //Call a function when the state changes.
-        //     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-        //         var responseText = xmlhttp.responseText;
-        //         // layer.open(JSON.parse(responseText));
+        var url = window.location.href;
+        xmlhttp.open("POST", url, true);
+        xmlhttp.onreadystatechange = function () { //Call a function when the state changes.
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                var responseText = xmlhttp.responseText;
+                // console.log(responseText)
+                document.getElementById("content").innerHTML = marked(responseText);
 
-        //     }
-        //     else if (xmlhttp.readyState == 4 && xmlhttp.status == 201) {
-        //         var responseText = xmlhttp.responseText;
-        //         layer.open(JSON.parse(responseText));
-        //     }
-        // };
-        // xmlhttp.send(JSON.stringify(data.field));
+            }
+            else if (xmlhttp.readyState == 4 && xmlhttp.status == 201) {
+                var responseText = xmlhttp.responseText;
+                layer.open(JSON.parse(responseText));
+            }
+        };
+        xmlhttp.send();
     </script>
 
 </body>

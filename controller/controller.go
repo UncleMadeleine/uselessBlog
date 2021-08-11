@@ -25,17 +25,17 @@ func IndexAPI(c *gin.Context) {
 
 //BlogMedalTemplate 加载各博客页面
 func BlogMedalTemplate(c *gin.Context) {
-	blogID := c.Param(":id")
-	c.JSON(200, blogID)
-	c.HTML(http.StatusOK, "Medal.html", gin.H{"msg": "success!"})
-	// c.JSON(200, "hello")
+	// blogID := c.Param(":id")
+	// c.JSON(200, blogID)
+	c.HTML(http.StatusOK, "blogMedal.html", gin.H{"msg": "success!"})
 }
 
 //BlogMedalAPI 便于js动态加载博客内容
 func BlogMedalAPI(c *gin.Context) {
-	blogID := c.Param(":id")
+	//TODO:有bug，读不到ID
+	blogID := c.Param("id")
+	// log.Print("此处ID为：" + blogID)
 	BlogLoad(c, blogID)
-	// c.JSON(200, "hello")
 }
 
 //LoginAPI : 登录操作
