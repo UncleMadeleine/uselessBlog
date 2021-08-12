@@ -23,7 +23,6 @@ func LoginOperation(c *gin.Context) {
 	ent := entity.UserEntity{}
 	ent.LoginName = user.LoginName
 	ent.Password = tools.EncodingSha256(user.Password)
-	//TODO: 验证登录
 	en, ok := dbservice.GetUserByLoginName(ent.LoginName)
 	if !ok {
 		tools.Spread(c, 201, "数据库错误", "可能根本没有这个用户")
@@ -72,15 +71,28 @@ func RegisterOperation(c *gin.Context) {
 
 //DelOperation 删除操作
 func DelOperation(c *gin.Context) {
-	// TODO 权限验证
-	userID := c.Param(":id")
-	ok := dbservice.Delete(userID)
+	session := sessions.Default(c)
+	adminName := session.Get("loginname")
+	if adminName == nil {
+		tools.Spread(c, 201, "未登录", "需登录后再进行操作")
+		return
+	}
+	admin, ok := dbservice.GetUserByLoginName(adminName.(string))
 	if !ok {
 		tools.Spread(c, 201, "数据库错误", "删除失败")
 		return
 	}
-	//TODO: 这里改成tools
-	c.JSON(200, "userName: "+userID)
+	if admin.Admin != 404 && admin.Admin != 405 {
+		tools.Spread(c, 201, "权限错误", "您不具备该权限")
+		return
+	}
+	userID := c.Param("id")
+	ok = dbservice.Delete(userID)
+	if !ok {
+		tools.Spread(c, 201, "数据库错误", "删除失败")
+		return
+	}
+	tools.Spread(c, 200, "删除成功", "用户"+userID+"已删除")
 }
 
 //SaveSession 登录时储存session
@@ -113,4 +125,11 @@ func LogOut(c *gin.Context) {
 		return
 	}
 	// tools.Spread(c, 200, "注销成功", "注销成功")
+}
+
+//AllUsersLoad 动态加载博客
+func AllUsersLoad(c *gin.Context) {
+	users := dbservice.FindAllUsers()
+	// log.Print("现有user数：" + fmt.Sprintf("%d", len(users)))
+	c.JSON(200, tools.TypeReturn(users, "success!"))
 }

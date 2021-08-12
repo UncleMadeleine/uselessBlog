@@ -1,0 +1,17 @@
+2021/08/13 00:07:33 dbservice.go:37: &{{{0 0} 0 0 0 0} 0xc0004686c0 <nil> 0 0xc000088f70 false 0 {0xc00017fef0} 0xc0000b0160 {{0 0} {<nil>} map[] 0} 0xc000089040 <nil> 0xc0004603a0 false <nil>}
+2021/08/13 00:07:33 dbservice.go:42: &{{{0 0} 0 0 0 0} 0xc0000640f0 <nil> 0 0xc000088f70 false 0 {0xc00017fef0} 0xc000548160 {{0 0} {<nil>} map[] 0} 0xc000089040 <nil> 0xc0004842c0 false <nil>}
+2021/08/13 00:07:51 usercontroller.go:110: 储存成功，session储存用户：120
+2021/08/13 00:08:13 usercontroller.go:110: 储存成功，session储存用户：405
+2021/08/13 00:08:21 dbservice.go:118: Error 1054: Unknown column 'Users.' in 'where clause'
+2021/08/13 00:20:24 dbservice.go:37: &{{{0 0} 0 0 0 0} 0xc000510000 <nil> 0 0xc0005132b0 false 0 {0xc0000ffef0} 0xc000588160 {{0 0} {<nil>} map[] 0} 0xc000513380 <nil> 0xc0003e2380 false <nil>}
+2021/08/13 00:20:24 dbservice.go:42: &{{{0 0} 0 0 0 0} 0xc0005159f0 <nil> 0 0xc0005132b0 false 0 {0xc0000ffef0} 0xc0005886e0 {{0 0} {<nil>} map[] 0} 0xc000513380 <nil> 0xc0003e2dc0 false <nil>}
+2021/08/13 00:20:58 usercontroller.go:110: 储存成功，session储存用户：405
+2021/08/13 00:21:05 dbservice.go:119: Error 1054: Unknown column 'loginname' in 'where clause'
+2021/08/13 00:22:22 dbservice.go:37: &{{{0 0} 0 0 0 0} 0xc0004690c0 <nil> 0 0xc000492f70 false 0 {0xc00017fef0} 0xc0006acb00 {{0 0} {<nil>} map[] 0} 0xc000493040 <nil> 0xc000091780 false <nil>}
+2021/08/13 00:22:22 dbservice.go:42: &{{{0 0} 0 0 0 0} 0xc000458960 <nil> 0 0xc000492f70 false 0 {0xc00017fef0} 0xc0006ad080 {{0 0} {<nil>} map[] 0} 0xc000493040 <nil> 0xc000091ee0 false <nil>}
+2021/08/13 00:22:42 usercontroller.go:110: 储存成功，session储存用户：405
+2021/08/13 00:22:53 dbservice.go:119: Error 1054: Unknown column 'Loginname' in 'where clause'
+2021/08/13 00:37:57 dbservice.go:37: &{{{0 0} 0 0 0 0} 0xc00061c340 <nil> 0 0xc000495110 false 0 {0xc0000ffef0} 0xc000588160 {{0 0} {<nil>} map[] 0} 0xc0004951e0 <nil> 0xc000414060 false <nil>}
+2021/08/13 00:37:57 dbservice.go:42: &{{{0 0} 0 0 0 0} 0xc0003da280 <nil> 0 0xc000495110 false 0 {0xc0000ffef0} 0xc000588580 {{0 0} {<nil>} map[] 0} 0xc0004951e0 <nil> 0xc0004146e0 false <nil>}
+2021/08/13 00:38:34 usercontroller.go:110: 储存成功，session储存用户：405
+2021/08/13 00:39:03 dbservice.go:66: record not found

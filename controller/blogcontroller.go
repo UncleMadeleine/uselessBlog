@@ -65,7 +65,6 @@ func BlogLoad(c *gin.Context, blogID string) {
 		tools.Spread(c, 201, "错误", "数据库错误")
 		return
 	}
-	// log.Print("文件路径：" + blog.Body)
 	data, ok := tools.ReadFile(blog.Body)
 	if !ok {
 		tools.Spread(c, 201, "错误", "读取文件错误")

@@ -68,30 +68,16 @@
                 xmlhttp.open("POST", "/user/login", true);
                 xmlhttp.onreadystatechange = function () { //Call a function when the state changes.
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                        // console.log("正常的")
                         // cb(xmlhttp.responseText);
                         var responseText = xmlhttp.responseText;
                         layer.open(JSON.parse(responseText));
                     }
                     else if (xmlhttp.readyState == 4 && xmlhttp.status == 201) {
-                        // console.log(xmlhttp)
                         var responseText = xmlhttp.responseText;
                         layer.open(JSON.parse(responseText));
-                        // layer.open(
-                        //     {
-                        //         title: '发生错误',
-                        //         content: '配置各种参数，试试效果'
-                        //     }
-                        // );
                     }
-                    // else{
-                    //     // layer.msg("错误")
-                    //     console.log("错误"+xmlhttp.readyState+" "+xmlhttp.status)
-                    //     // console.log()
-                    // }
                 };
                 xmlhttp.send(JSON.stringify(data.field));
-                // console.log("理论上已发送")
                 return false;
             });
         });

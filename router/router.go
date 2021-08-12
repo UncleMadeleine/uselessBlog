@@ -16,19 +16,19 @@ func Init(router *gin.Engine) {
 		home.GET("/login", controller.LoginTemplate)
 		home.GET("/register", controller.RegisterTemplate)
 		home.GET("/upload", controller.UploadTemplate)
-
+		home.GET("/admin", controller.AdminTemplate)
+		home.POST("/admin", controller.AdminAPI)
 	}
 	wqy := router.Group("user")
 	{
 		wqy.POST("/login", controller.LoginAPI)
 		wqy.POST("/register", controller.RegisterAPI)
-		wqy.DELETE("/del/:id", controller.DelAPI)
+		wqy.GET("/del/:id", controller.DelAPI)
+		// wqy.DELETE("/del/:id", controller.DelAPI)
 		wqy.POST("/upload", controller.UploadAPI)
 	}
 	ljw := router.Group("blog")
 	{
-		//TODO:
-		// dbvalues := dbservice.FindBlogs()
 		ljw.GET("/:id", controller.BlogMedalTemplate)
 		ljw.POST("/:id", controller.BlogMedalAPI)
 	}

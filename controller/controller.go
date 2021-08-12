@@ -22,8 +22,6 @@ func IndexAPI(c *gin.Context) {
 
 //BlogMedalTemplate 加载各博客页面
 func BlogMedalTemplate(c *gin.Context) {
-	// blogID := c.Param(":id")
-	// c.JSON(200, blogID)
 	c.HTML(http.StatusOK, "blogMedal.html", gin.H{"msg": "success!"})
 }
 
@@ -49,7 +47,7 @@ func UploadAPI(c *gin.Context) {
 	UploadBlog(c)
 }
 
-//DelAPI : 删除数据库中的用户 TODO
+//DelAPI : 删除数据库中的用户
 func DelAPI(c *gin.Context) {
 	DelOperation(c)
 }
@@ -68,4 +66,14 @@ func UploadTemplate(c *gin.Context) {
 //RegisterTemplate : 加载注册页面
 func RegisterTemplate(c *gin.Context) {
 	c.HTML(http.StatusOK, "register.html", gin.H{"msg": "successful!"})
+}
+
+//AdminAPI 在admin页面返回所有用户
+func AdminAPI(c *gin.Context) {
+	AllUsersLoad(c)
+}
+
+//AdminTemplate 加载admin页面
+func AdminTemplate(c *gin.Context) {
+	c.HTML(http.StatusOK, "admin.html", gin.H{"msg": "successful!"})
 }

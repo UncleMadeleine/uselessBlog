@@ -89,6 +89,13 @@ func FindAllBlogs() []*entity.BlogEntity {
 	return blogs
 }
 
+//FindAllUsers 获取users的所有数据
+func FindAllUsers() []*entity.UserEntity {
+	var users = make([]*entity.UserEntity, 0)
+	Db.Model(&entity.UserEntity{}).Find(&users)
+	return users
+}
+
 //GetBlogsByID 通过ID获取blogs的数据
 func GetBlogsByID(number uint) (entity.BlogEntity, bool) {
 	var blog = entity.BlogEntity{}
@@ -104,13 +111,15 @@ func GetBlogsByID(number uint) (entity.BlogEntity, bool) {
 // 	dbservice.Db.Model(&userentity.UserEntity{}).Where(&userentity.UserEntity{ID: user.ID}).Updates(user)
 // }
 
-//Delete 删除用户  TODO
+//Delete 删除用户  TODO:有bug，会删除所有用户
 func Delete(userID string) bool {
-	err := Db.Delete(&entity.UserEntity{}, userID).Error
-	if err != nil {
-		log.Print(err)
-		return false
-	}
+	// err := Db.Delete(&entity.UserEntity{}, userID).Error
+	log.Print("待删除用户：" + userID)
+	// err := Db.Model(&entity.UserEntity{}).Delete(&entity.UserEntity{LoginName: userID}).Error
+	// if err != nil {
+	// 	log.Print(err)
+	// 	return false
+	// }
 	return true
 }
 
