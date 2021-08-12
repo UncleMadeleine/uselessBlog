@@ -18,7 +18,9 @@
         <li class="layui-nav-item"><a href="http://localhost:9000/login">登录</a></li>
         <li class="layui-nav-item"><a href="http://localhost:9000/upload">发帖</a></li>
     </ul>
-
+    <div id="headline" style="margin-left: 120px;margin-right: 120px;margin-top: 120px;margin-bottom: 120px;">
+        <h1 id="headline_title"></h1>
+    </div>
     <div id="content" style="margin-left: 120px;margin-right: 120px;margin-top: 120px;margin-bottom: 120px;">
 
     </div>
@@ -27,16 +29,17 @@
     <script src="/static/layui.js" charset="utf-8"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
-        // TODO:
         xmlhttp = new XMLHttpRequest();
         var url = window.location.href;
         xmlhttp.open("POST", url, true);
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 var responseText = xmlhttp.responseText;
-                // console.log(responseText)
-                document.getElementById("content").innerHTML = marked(responseText);
-
+                console.log(responseText);
+                var ljw = JSON.parse(responseText);
+                document.getElementById("headline_title").innerHTML = marked(ljw.msg);
+                document.getElementById("content").innerHTML = marked(ljw.data);
+                document.title = "uselessBlog: "+ljw.msg;
             }
             else if (xmlhttp.readyState == 4 && xmlhttp.status == 201) {
                 var responseText = xmlhttp.responseText;

@@ -14,11 +14,20 @@ func Spread(c *gin.Context, state int, str1 string, str2 string) {
 	c.JSON(state, errMessage)
 }
 
+// //TypeReturn 返回正确的gin.H类型
+// func TypeReturn(data interface{}) gin.H {
+// 	return gin.H{
+// 		"status": 200,
+// 		"msg":    "success!",
+// 		"data":   data,
+// 	}
+// }
+
 //TypeReturn 返回正确的gin.H类型
-func TypeReturn(data interface{}) gin.H {
+func TypeReturn(data interface{}, str string) gin.H {
 	return gin.H{
 		"status": 200,
-		"msg":    "success!",
+		"msg":    str,
 		"data":   data,
 	}
 }

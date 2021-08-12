@@ -71,11 +71,12 @@ func BlogLoad(c *gin.Context, blogID string) {
 		tools.Spread(c, 201, "错误", "读取文件错误")
 	}
 	c.Header("content-disposition", `attachment; filename=`+blog.Head)
-	c.Data(200, "application/octet-stream", data)
+	// c.Data(200, "application/octet-stream", data)
+	c.JSON(200, tools.TypeReturn(data, blog.Head))
 }
 
 //BlogIndex 获取首页所需的博客
 func BlogIndex(c *gin.Context) {
 	blogs := dbservice.FindAllBlogs()
-	c.JSON(200, tools.TypeReturn(blogs))
+	c.JSON(200, tools.TypeReturn(blogs, "success!"))
 }
