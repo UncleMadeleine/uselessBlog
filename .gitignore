@@ -1,2 +1,3 @@
-!.gitignore
-!/localfiles/
+.gitignore
+localfiles/
+logfile.log

@@ -6,6 +6,8 @@ type BlogEntity struct {
 	Number   uint   `gorm:"AUTO_INCREMENT;primary_key" json:"number"`
 	Body     string `json:"body"`
 	UserName string `json:"user_name"`
+	Author   string `json:"author"`
+	// Bytes    []byte `json:"bytes"`
 }
 
 //TableName 自定义表名称

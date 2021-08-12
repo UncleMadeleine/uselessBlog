@@ -87,7 +87,7 @@ func DelOperation(c *gin.Context) {
 func SaveSession(c *gin.Context, us entity.UserEntity) {
 	session := sessions.Default(c)
 	session.Set("loginname", us.LoginName)
-	session.Set("nickName", us.NickName)
+	session.Set("nickname", us.NickName)
 	session.Set("age", us.Age)
 	// LogOut(c)
 	err := session.Save()

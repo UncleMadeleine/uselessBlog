@@ -23,6 +23,7 @@ func UploadBlog(c *gin.Context) {
 		tools.Spread(c, 201, "出错了", "未登录")
 	}
 	userName := session.Get("loginname")
+	nickName := session.Get("nickname")
 	// log.Print("session中储存的用户:" + userName.(string))
 	file, err := c.FormFile("file")
 	if err != nil {
@@ -30,9 +31,7 @@ func UploadBlog(c *gin.Context) {
 		tools.Spread(c, 201, "出错了", "文件有误")
 		return
 	}
-	// fileName := "/localfiles/" + strconv.FormatInt(time.Now().Unix(), 10) + file.Filename
 	fileName := "./localfiles/" + strconv.FormatInt(time.Now().Unix(), 10) + file.Filename
-	// fileName := path.Join("/localfiles", strconv.FormatInt(time.Now().Unix(), 10)+file.Filename)
 	err = c.SaveUploadedFile(file, fileName)
 	if err != nil {
 		log.Print(err)
@@ -45,6 +44,7 @@ func UploadBlog(c *gin.Context) {
 	// ent.Body = fileName[2:]
 	ent.Body = fileName
 	ent.UserName = userName.(string)
+	ent.Author = nickName.(string)
 	blogName, ok := dbservice.UploadBlog(ent)
 	if !ok {
 		tools.Spread(c, 201, "数据库错误", "上传博客失败")

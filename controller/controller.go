@@ -3,9 +3,6 @@ package controller
 import (
 	"net/http"
 
-	// "uselessBlog/entity"
-
-	// "github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
 )
 
@@ -32,7 +29,6 @@ func BlogMedalTemplate(c *gin.Context) {
 
 //BlogMedalAPI 便于js动态加载博客内容
 func BlogMedalAPI(c *gin.Context) {
-	//TODO:有bug，读不到ID
 	blogID := c.Param("id")
 	// log.Print("此处ID为：" + blogID)
 	BlogLoad(c, blogID)
