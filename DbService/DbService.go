@@ -111,15 +111,19 @@ func GetBlogsByID(number uint) (entity.BlogEntity, bool) {
 // 	dbservice.Db.Model(&userentity.UserEntity{}).Where(&userentity.UserEntity{ID: user.ID}).Updates(user)
 // }
 
-//Delete 删除用户  TODO:有bug，会删除所有用户
+//Delete 删除用户
 func Delete(userID string) bool {
 	// err := Db.Delete(&entity.UserEntity{}, userID).Error
 	log.Print("待删除用户：" + userID)
-	// err := Db.Model(&entity.UserEntity{}).Delete(&entity.UserEntity{LoginName: userID}).Error
-	// if err != nil {
-	// 	log.Print(err)
-	// 	return false
-	// }
+	email, ok := GetUserByLoginName(userID)
+	if !ok {
+		return false
+	}
+	err := Db.Delete(&email).Error
+	if err != nil {
+		log.Print(err)
+		return false
+	}
 	return true
 }
 
